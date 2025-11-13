@@ -1,0 +1,134 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>DHCP — Diponegoro Hacking Core of Pwning</title>
+  <meta name="description" content="Official site of DHCP (Diponegoro Hacking Core of Pwning)." />
+  <style>
+    :root{
+      --bg: #0b0f14;
+      --card: #0f1621;
+      --text: #e6edf3;
+      --muted: #9fb0c0;
+      --brand: #37e6ff;
+      --accent: #9b5cff;
+      --ok: #4ade80;
+      --warn: #f59e0b;
+      --shadow: 0 10px 30px rgba(0,0,0,.35);
+      --radius: 18px;
+    }
+    @media (prefers-color-scheme: light){
+      :root{
+        --bg:#f6f7fb; --card:#ffffff; --text:#0b1220; --muted:#475569; --shadow:0 10px 30px rgba(2,6,23,.08)
+      }
+    }
+    html,body{height:100%}
+    body{
+      margin:0; font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Inter, "Helvetica Neue", Arial, Noto Sans, "Apple Color Emoji", "Segoe UI Emoji";
+      color:var(--text); background:
+        radial-gradient(1200px 800px at 10% -10%, rgba(55,230,255,.12), transparent 50%),
+        radial-gradient(1200px 800px at 110% 10%, rgba(155,92,255,.12), transparent 50%),
+        var(--bg);
+      display:grid; place-items:center; padding:28px;
+    }
+    .card{
+      width:min(860px, 92vw);
+      background:linear-gradient(180deg, rgba(255,255,255,.04), rgba(255,255,255,0)) padding-box,
+                 radial-gradient(120% 160% at 30% -10%, rgba(55,230,255,.35), rgba(155,92,255,.25), transparent 60%) border-box,
+                 var(--card);
+      border:1px solid rgba(255,255,255,.12);
+      border-radius:var(--radius);
+      box-shadow:var(--shadow);
+      overflow:hidden;
+    }
+    .hero{
+      padding:40px 28px 24px; position:relative; text-align:center;
+    }
+    .badge{
+      display:inline-flex; gap:8px; align-items:center; 
+      padding:6px 12px; border-radius:999px; 
+      background:rgba(255,255,255,.06); border:1px solid rgba(255,255,255,.12);
+      font-size:13px; color:var(--muted); letter-spacing:.2px;
+      margin-bottom:14px;
+    }
+    .dot{width:8px; height:8px; border-radius:999px; background:var(--warn); box-shadow:0 0 0 0 rgba(245,158,11,.6); animation:pulse 1.8s infinite}
+    @keyframes pulse{ 0%{box-shadow:0 0 0 0 rgba(245,158,11,.6)} 70%{box-shadow:0 0 0 12px rgba(245,158,11,0)} 100%{box-shadow:0 0 0 0 rgba(245,158,11,0)} }
+    h1{
+      margin:8px 0 10px; font-size:clamp(28px, 5vw, 44px); line-height:1.1; letter-spacing:.3px;
+      background: linear-gradient(90deg, var(--brand), var(--accent));
+      -webkit-background-clip:text; background-clip:text; color:transparent;
+    }
+    .subtitle{ color:var(--muted); font-size:clamp(15px, 2.5vw, 18px); max-width:60ch; margin:0 auto }
+    .grid{ display:grid; grid-template-columns:1fr; gap:18px; padding:28px }
+    @media (min-width:720px){ .grid{ grid-template-columns:1fr 1fr } }
+    .panel{
+      background:rgba(255,255,255,.03); border:1px solid rgba(255,255,255,.10);
+      border-radius:14px; padding:18px 18px 16px; min-height:120px;
+    }
+    .panel h3{margin:0 0 6px; font-size:16px; color:var(--text); letter-spacing:.2px}
+    .panel p{margin:0; color:var(--muted); font-size:14px; line-height:1.5}
+    .progress{height:10px; background:rgba(255,255,255,.06); border-radius:999px; overflow:hidden; margin-top:12px; border:1px solid rgba(255,255,255,.1)}
+    .bar{height:100%; width:35%; background:linear-gradient(90deg, var(--brand), var(--accent)); animation:grow 2.2s ease-out forwards}
+    @keyframes grow{ from{width:10%} to{width:62%} }
+    .footer{
+      padding:10px 20px 24px; display:flex; flex-wrap:wrap; align-items:center; justify-content:space-between; gap:12px; border-top:1px solid rgba(255,255,255,.08)
+    }
+    .links{display:flex; gap:12px; flex-wrap:wrap}
+    .btn{
+      display:inline-flex; gap:8px; align-items:center; padding:10px 14px; border-radius:12px; text-decoration:none; 
+      color:var(--text); border:1px solid rgba(255,255,255,.12); background:rgba(255,255,255,.04)
+    }
+    .btn:hover{ transform:translateY(-1px); transition:.15s ease; border-color:rgba(255,255,255,.22) }
+    .mono{ font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace; font-size:12px; color:var(--muted) }
+    .logo{
+      display:inline-grid; place-items:center; width:64px; height:64px; border-radius:16px;
+      background: radial-gradient(80% 100% at 30% 20%, rgba(55,230,255,.3), transparent 60%), rgba(255,255,255,.06);
+      border:1px solid rgba(255,255,255,.12); margin: 10px auto 0;
+    }
+    .logo svg{width:34px; height:34px}
+  </style>
+</head>
+<body>
+  <main class="card" role="main">
+    <section class="hero">
+      <span class="badge" aria-live="polite" aria-atomic="true"><span class="dot" aria-hidden="true"></span> Website under construction</span>
+      <div class="logo" aria-hidden="true">
+        <!-- Simple shield/lock glyph -->
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <path d="M12 3l7 3v5c0 5-3.5 8.5-7 10-3.5-1.5-7-5-7-10V6l7-3z"/>
+          <path d="M9.5 12.5a2.5 2.5 0 115 0v2h-5v-2z"/>
+        </svg>
+      </div>
+      <h1>DHCP — Diponegoro Hacking Core of Pwning</h1>
+      <p class="subtitle">Cybersecurity community of Diponegoro University. The site is brewing — documentation, write‑ups, and events will land here soon.</p>
+    </section>
+
+    <section class="grid" aria-label="Status blocks">
+      <div class="panel">
+        <h3>What is coming</h3>
+        <p>Community playbook, CTF write‑ups, training tracks (Web, Pwn, Reversing), and event announcements.</p>
+        <div class="progress" role="progressbar" aria-label="Site readiness" aria-valuemin="0" aria-valuemax="100" aria-valuenow="62">
+          <div class="bar"></div>
+        </div>
+      </div>
+      <div class="panel">
+        <h3>Get in touch</h3>
+        <p>Want to collaborate, sponsor, or join our scrims? Reach us via GitHub or hop into our Discord server.</p>
+      </div>
+    </section>
+
+    <footer class="footer">
+      <div class="links" role="navigation" aria-label="Primary links">
+        <a class="btn" href="https://github.com/DHCP-team" target="_blank" rel="noopener">GitHub Organization</a>
+        <a class="btn" href="#" aria-disabled="true" title="Discord invitational only">Discord (invitational only)</a>
+      </div>
+      <div class="mono">© <span id="y"></span> DHCP UNDIP • Built with GitHub Pages</div>
+    </footer>
+  </main>
+  <script>
+    // Insert current year and add tiny ellipsis animation to badge text for some life.
+    document.getElementById('y').textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
